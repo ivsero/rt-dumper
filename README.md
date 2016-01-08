@@ -9,7 +9,10 @@ You need install latest version of "Requests" Python library http://docs.python-
 pip install requests
 ```
 
-Then download rt_tickets_dumper.py.
+Then download rt_tickets_dumper.py:
+```
+wget https://raw.githubusercontent.com/ivsero/rt-dumper/master/rt_tickets_dumper.py
+```
 
 ## Usage
 You need to specify folder to download tickets content. In this folder tool creates a separate subdirectories for each ticket (named as ticket id).
