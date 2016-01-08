@@ -1,5 +1,5 @@
 # rt-dumper
-Tool for dumping ticket history with attachments from Best Practical RT
+Tool for dumping ticket history with attachments from Best Practical RT.
 This Python script allows you save all tickets history (including attachments) from Best Practical Request Tracker https://bestpractical.com/rt/ via REST API.
 Tested on Python v. 2.7.9 and Requests v. 2.6.2 and RT v. 4.2.1
 
