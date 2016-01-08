@@ -3,8 +3,7 @@ Tool for dumping ticket history with attachments from Best Practical RT.
 This Python script allows you save all tickets history (including attachments) from Best Practical Request Tracker https://bestpractical.com/rt/ via REST API.
 Tested on Python v. 2.7.9 and Requests v. 2.6.2 and RT v. 4.2.1
 
-Installing
---------------------
+## Installing
 You need install latest version of "Requests" Python library http://docs.python-requests.org/en/latest/ For example you can install it via pip:
 ```
 pip install requests
@@ -12,8 +11,7 @@ pip install requests
 
 Then download rt_tickets_dumper.py.
 
-Usage
---------------------
+## Usage
 You need to specify folder to download tickets content. In this folder tool creates a separate subdirectories for each ticket (named as ticket id).
 Also you need specify other Request Tracker access details.
 Example:
