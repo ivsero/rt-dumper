@@ -119,12 +119,10 @@ if __name__ == '__main__':
     )
     current_ticket_id = 1
     all_data_processed = 0
-    while True:
+    while not all_data_processed:
         ticket_exists = dumper.get_ticket_history(current_ticket_id)
         if ticket_exists:
             dumper.get_ticket_attachments(current_ticket_id)
             current_ticket_id += 1
         else:
             all_data_processed = 1
-        if all_data_processed != 0:
-            break
