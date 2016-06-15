@@ -117,7 +117,6 @@ if __name__ == '__main__':
     parser.add_argument(
             '-t',
             '--ticket',
-            action='store_true',
             help='Specify ticket id if you want download all data for single ticket.',
             required=False
     )
