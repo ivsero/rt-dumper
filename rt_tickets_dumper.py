@@ -5,6 +5,7 @@ import argparse
 import re
 import requests
 import os
+import sys
 
 
 class RtDumper:
@@ -106,6 +107,20 @@ if __name__ == '__main__':
             help='Your Requests Tracker account password.',
             required=True
     )
+    parser.add_argument(
+            '-s',
+            '--schema',
+            help='Schema - http (by default) or https.',
+            default='http',
+            required=False
+    )
+    parser.add_argument(
+            '-t',
+            '--ticket',
+            action='store_true',
+            help='Specify ticket id if you want download all data for single ticket.',
+            required=False
+    )
     args = parser.parse_args()
 
     if not os.path.isdir(args.folder):
@@ -115,14 +130,22 @@ if __name__ == '__main__':
             dump_directory=args.folder,
             rt_host=args.domain,
             username=args.username,
-            password=args.password
+            password=args.password,
+            schema = args.schema
     )
-    current_ticket_id = 1
-    all_data_processed = 0
-    while not all_data_processed:
-        ticket_exists = dumper.get_ticket_history(current_ticket_id)
-        if ticket_exists:
-            dumper.get_ticket_attachments(current_ticket_id)
-            current_ticket_id += 1
-        else:
-            all_data_processed = 1
+    if args.ticket:
+        ticket_exists = dumper.get_ticket_history(args.ticket)
+        if not ticket_exists:
+            print('Ticket not found.')
+            sys.exit(0)
+        dumper.get_ticket_attachments(args.ticket)
+    else:
+        current_ticket_id = 1
+        all_data_processed = 0
+        while not all_data_processed:
+            ticket_exists = dumper.get_ticket_history(current_ticket_id)
+            if ticket_exists:
+                dumper.get_ticket_attachments(current_ticket_id)
+                current_ticket_id += 1
+            else:
+                all_data_processed = 1

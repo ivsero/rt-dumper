@@ -18,6 +18,6 @@ You need to specify folder to download tickets content. In this folder tool crea
 Also you need specify other Request Tracker access details.
 Example:
 ```
-python rt_tickets_dumper.py --folder /home/ivsero/data/rt_dumps --domain rt.domain.tld --username ivsero --password *secret*
+python rt_tickets_dumper.py --folder /home/ivsero/data/rt_dumps --domain rt.domain.tld --username ivsero --password *secret* --schema https
 ```
 Tested on Python v. 2.7.9, Requests v. 2.6.2 and RT v. 4.2.1
