@@ -120,6 +120,12 @@ if __name__ == '__main__':
             help='Specify ticket id if you want download all data for single ticket.',
             required=False
     )
+     parser.add_argument(
+            '-ts',
+            '--startticket',
+            help='Specify ticket id to start if you want download all data for start ticket. id to the end',
+            required=False
+    )
     args = parser.parse_args()
 
     if not os.path.isdir(args.folder):
@@ -132,6 +138,10 @@ if __name__ == '__main__':
             password=args.password,
             schema = args.schema
     )
+    if  args.startticket > 1:
+        current_ticket_id = int(args.startticket)
+    else:
+        current_ticket_id = 1
     if args.ticket:
         ticket_exists = dumper.get_ticket_history(args.ticket)
         if not ticket_exists:
@@ -139,7 +149,6 @@ if __name__ == '__main__':
             sys.exit(0)
         dumper.get_ticket_attachments(args.ticket)
     else:
-        current_ticket_id = 1
         all_data_processed = 0
         while not all_data_processed:
             ticket_exists = dumper.get_ticket_history(current_ticket_id)
