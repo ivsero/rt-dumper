@@ -138,7 +138,7 @@ if __name__ == '__main__':
             password=args.password,
             schema = args.schema
     )
-    if  args.startticket > 1:
+    if  args.startticket: 
         current_ticket_id = int(args.startticket)
     else:
         current_ticket_id = 1
