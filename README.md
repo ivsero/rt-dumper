@@ -20,4 +20,4 @@ Example:
 ```
 python rt_tickets_dumper.py --folder /home/ivsero/data/rt_dumps --domain rt.domain.tld --username ivsero --password *secret* --schema https
 ```
-Tested on Python v. 2.7.9, Requests v. 2.6.2 and RT v. 4.2.1
+Tested on Python v. 2.7.9, Requests v. 2.6.2 and RT v. 4.2.2
