@@ -120,7 +120,7 @@ if __name__ == '__main__':
             help='Specify ticket id if you want download all data for single ticket.',
             required=False
     )
-     parser.add_argument(
+    parser.add_argument(
             '-ts',
             '--startticket',
             help='Specify ticket id to start if you want download all data for start ticket. id to the end',
