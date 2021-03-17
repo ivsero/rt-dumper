@@ -28,7 +28,7 @@ class RtDumper:
     def _get_session_cookies(self):
         session = requests.Session()
         rt_auth_url = '{0}://{1}/'.format(self.schema, self.rt_host)
-        session.post(rt_auth_url, data='user={0}&pass={1}'.format(self.username, self.password), verify=False)
+        session.post(rt_auth_url, data={'user': self.username, 'pass': self.password}, verify=False)
         try:
             rt_cookies = session.cookies
         except:
